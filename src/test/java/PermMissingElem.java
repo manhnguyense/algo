@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PermMissingElem {
     /*
@@ -33,11 +35,24 @@ each element of array A is an integer within the range [1..(N + 1)].
     void test() {
         // sum of positive 1..n S = (n*(n+1))/2
         final int[] arr = new int[]{2, 3, 4, 1, 5, 7};
-        System.out.println(solution(arr));
+        System.out.println(solution2(arr));
     }
 
     public int solution(int[] A) {
         int N = A.length + 1;
         return N * (N + 1) / 2 - Arrays.stream(A).boxed().mapToInt(a -> a).sum();
     }
+
+    public int solution2(int[] A) {
+        Set<Integer> s = new HashSet<>();
+        int min = 1;
+        for (int j : A) {
+            s.add(j);
+        }
+        while (s.contains(min)) {
+            min++;
+        }
+        return min;
+    }
+
 }
