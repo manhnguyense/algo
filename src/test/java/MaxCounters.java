@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-
+import sort.GsonUtils;
 
 import java.util.Arrays;
 
@@ -34,10 +34,10 @@ the values of the counters after each consecutive operation will be:
 The goal is to calculate the value of every counter after all operations.
      */
     @Test
-    public  void test() {
+    public void test() {
         int X = 5;
-        int[] A = {3, 4, 4, 6, 1,4,4};
-        System.out.println(  GsonUtils.toString( solution2(X, A)));
+        int[] A = {3, 4, 4, 6, 1, 4, 4};
+        System.out.println(GsonUtils.toString(solution2(X, A)));
     }
 
     private void applyMaxCounter(int[] result, int lastUpdate) {
@@ -75,13 +75,13 @@ The goal is to calculate the value of every counter after all operations.
 
     //Timeout
     public int[] solution(int N, int[] A) {
-        int [] result = new int[N];
+        int[] result = new int[N];
         int maxVal = N + 1;
         int max = 0;
         int lastUpdate = 0;
         for (int index : A) {
             if (index == maxVal) {
-                if(lastUpdate == 0 || lastUpdate!=max) {
+                if (lastUpdate == 0 || lastUpdate != max) {
                     result = maxCounter2(max, N);
                     lastUpdate = max;
                 }
@@ -95,7 +95,7 @@ The goal is to calculate the value of every counter after all operations.
         return result;
     }
 
-    private int[] maxCounter2(int maxVal,int N) {
+    private int[] maxCounter2(int maxVal, int N) {
         int[] rs = new int[N];
         Arrays.fill(rs, maxVal);
         return rs;

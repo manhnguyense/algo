@@ -1,3 +1,5 @@
+package sort;
+
 import org.junit.jupiter.api.Test;
 
 public class InsertionSort {
@@ -22,6 +24,7 @@ public class InsertionSort {
             if (arr[i] > arr[i + 1]) {
                 swap(arr, i, i + 1);
             }
+            System.out.println("Step :" + j + " Arrays: " + GsonUtils.toString(arr));
         }
     }
 
