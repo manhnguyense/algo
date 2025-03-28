@@ -12,7 +12,6 @@ public class HeapSort {
         // Build max heap
         buildMaxHeap(arr);
         System.out.println(GsonUtils.toString(arr));
-
         // Sort with heap
         heapSort(arr, n);
 
